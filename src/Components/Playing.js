@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+
 import "./player.css";
 import {
   Image,

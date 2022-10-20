@@ -11,7 +11,7 @@ import { atom, useRecoilState } from "recoil";
 const activeTrackUrl = atom({
   key: "activeUrl",
   default:{
-    url:"",
+   
     downloadUrl:""
   },
 });
@@ -24,7 +24,7 @@ export default function SongList() {
   const indexOfFirstTrack = indexOfLastTrack - tracksPerPage;
   const currentTracks = songsArray.slice(indexOfFirstTrack, indexOfLastTrack);
 
-  const [{url,downloadUrl},setTrackInfo] = useRecoilState(activeTrackUrl);
+  const [setTrackInfo] = useRecoilState(activeTrackUrl);
 
   function getActiveUrl(url,downloadUrl) {
 
@@ -43,7 +43,7 @@ export default function SongList() {
   }
   useEffect(() => {
     fetchData();
-  }, ["http://localhost:4000/api/songs/get-tracks"]);
+  }, ['http://localhost:4000/api/songs/get-tracks']);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
