@@ -77,7 +77,6 @@ const Playing = () => {
           ></Icon>
           0<Icon name="share" size="big"></Icon>0
         </div>
-
         <br />
         <br />
         <Button
@@ -97,7 +96,6 @@ const Playing = () => {
           size="tiny"
           floated="left"
           id="player-details"
-          download="https://firebasestorage.googleapis.com/v0/b/excepcion-library-61baa.appspot.com/o/Excepcion-Music-Tracks%2FluckyOnes.mp3?alt=media&token=b6dee47f-a3c3-4d3c-b119-ad4b1a357a77"
         >
           DOWNLOAD NOW
         </Button>
