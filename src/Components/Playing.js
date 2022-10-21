@@ -21,20 +21,7 @@ const activeTrackUrl = atom({
 });
 
 const Playing = () => {
-  const [{url,downloadUrl}, setTrackInfo] = useRecoilState(activeTrackUrl);
-
-  //  useEffect(() => {
-
-  //      axios
-  //       .get(`http://localhost:4000/api/songs/get-tracks`)
-  //       .then((response) => {
-  //         setSongsArray(response.data.details.rows);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-
-  // })
+  const [{url,downloadUrl}] = useRecoilState(activeTrackUrl);
 
   return (
     <>

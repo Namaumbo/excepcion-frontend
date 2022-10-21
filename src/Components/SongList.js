@@ -43,7 +43,7 @@ export default function SongList() {
   }
   useEffect(() => {
     fetchData();
-  }, ['http://localhost:4000/api/songs/get-tracks']);
+  }, []);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
