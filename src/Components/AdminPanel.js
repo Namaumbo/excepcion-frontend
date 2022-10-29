@@ -16,7 +16,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import * as firebase from "./firebase";
+// import * as firebase from "./firebase";
 
 export default function AdminPanel() {
   // files uploading
