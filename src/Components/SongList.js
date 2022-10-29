@@ -1,49 +1,48 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+// import axios from "axios";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Grid, Button, Image } from "semantic-ui-react";
 import photo1 from "../Asserts/photo1.jpg";
 import Pagination from "./Pagination";
 import "./songlist.css";
+import data from "../data/data";
 import { atom, useRecoilState } from "recoil";
 
 //you have to have 2 atoms with unique key here and the sharing componet
 const activeTrackUrl = atom({
   key: "activeUrl",
   default:{
-   
+    url:"",
     downloadUrl:""
   },
 });
 
 export default function SongList() {
-  const [songsArray, setSongsArray] = useState([]);
+  const [songsArray] = useState(data.details.rows);
   const [currentPage, setCurrentPage] = useState(1);
   const [tracksPerPage] = useState(4);
   const indexOfLastTrack = currentPage * tracksPerPage;
   const indexOfFirstTrack = indexOfLastTrack - tracksPerPage;
   const currentTracks = songsArray.slice(indexOfFirstTrack, indexOfLastTrack);
-
   const [setTrackInfo] = useRecoilState(activeTrackUrl);
 
   function getActiveUrl(url,downloadUrl) {
-
     setTrackInfo({url,downloadUrl});
   }
 
-  async function fetchData() {
-    await axios
-      .get(`http://localhost:4000/api/songs/get-tracks`)
-      .then((response) => {
-        setSongsArray(response.data.details.rows);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // async function fetchData() {
+  //   await axios
+  //     .get(`http://localhost:4000/api/songs/get-tracks`)
+  //     .then((response) => {
+  //       setSongsArray(response.data.details.rows);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (

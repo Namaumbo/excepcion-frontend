@@ -36,7 +36,6 @@ function App() {
               <Route path={`/song-list/${url}`} element={<Playing />} />
               <Route path="/admin/" element={ <AdminPanel/> }/>
               <Route path="*" element={<NoPage />} />
-              
             </Route>
           </Routes>
         </BrowserRouter>
